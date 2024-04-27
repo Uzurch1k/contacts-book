@@ -1,6 +1,10 @@
 .section {
 	padding: 10px 0;
 }
+.section__body {
+	display: flex;
+	gap: 50px;
+}
 
 /* --------- Adaptive tablet (768px) --------- */
 

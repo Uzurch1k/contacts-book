@@ -1,0 +1,21 @@
+.wrapp {
+	padding: 20px;
+	height: 380px;
+	overflow-y: scroll;
+	background-color: transparent;
+}
+.wrapp::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 5px;
+}
+.wrapp::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-content: center;
+	gap: 20px;
+}
