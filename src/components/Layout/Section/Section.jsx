@@ -4,7 +4,7 @@ const Section = ({ children }) => {
   return (
     <div className={css.section}>
       <div className={css.container}>
-        <div className={css.section__body}>{children}</div>
+        <div className={css.body}>{children}</div>
       </div>
     </div>
   );
