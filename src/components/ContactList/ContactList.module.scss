@@ -1,12 +1,12 @@
 .wrapp {
-	padding: 20px;
-	height: 380px;
+	max-height: 300px;
 	overflow-y: scroll;
 	background-color: transparent;
+	padding: 30px 50px;
 }
 .wrapp::-webkit-scrollbar {
 	-webkit-appearance: none;
-	width: 5px;
+	width: 10px;
 }
 .wrapp::-webkit-scrollbar-thumb {
 	border-radius: 5px;

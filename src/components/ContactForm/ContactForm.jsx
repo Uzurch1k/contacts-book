@@ -1,3 +1,5 @@
+import { FaArrowDownLong } from 'react-icons/fa6';
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addContact } from '../../redux/contactsOps';
@@ -29,7 +31,24 @@ const ContactForm = () => {
   const numberFieldId = nanoid();
   const dispatch = useDispatch();
 
+  const resultsRef = useRef(null);
+
+  const scrollUp = () => {
+    const height =
+      resultsRef.current.firstElementChild.getBoundingClientRect().top;
+    window.scrollBy({
+      top: height,
+      behavior: 'smooth',
+    });
+  };
+
+  const handleClick = () => {
+    scrollUp();
+  };
+
   const handleSubmit = (values, actions) => {
+    scrollUp();
+
     const { name, number } = values;
     dispatch(
       addContact({
@@ -41,46 +60,60 @@ const ContactForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={FeedbackSchema}
-      onSubmit={handleSubmit}
-    >
-      <Form className={css.form}>
-        <div className={css['form-boby']}>
-          <div>
-            <label className={css.label} htmlFor={nameFieldId}>
-              Name
-            </label>
-            <Field
-              className={css.input}
-              name="name"
-              id={nameFieldId}
-              placeholder="Name..."
-            />
-            <ErrorMessage className={css.error} name="name" component="p" />
+    <div className={css.wrapp}>
+      <div className={css.info}>
+        <h2>Welcome to the contact book</h2>
+        <p>Enrich your contact list</p>
+      </div>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={FeedbackSchema}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.form} ref={resultsRef}>
+          <div className={css['form-boby']}>
+            <div>
+              <label className={css.label} htmlFor={nameFieldId}>
+                Name
+              </label>
+              <Field
+                className={css.input}
+                name="name"
+                id={nameFieldId}
+                placeholder="Name..."
+              />
+              <ErrorMessage className={css.error} name="name" component="p" />
+            </div>
+
+            <div>
+              <label className={css.label} htmlFor={numberFieldId}>
+                Number
+              </label>
+              <Field
+                className={css.input}
+                type="number"
+                name="number"
+                id={numberFieldId}
+                placeholder="Number..."
+              />
+              <ErrorMessage className={css.error} name="number" component="p" />
+            </div>
           </div>
 
-          <div>
-            <label className={css.label} htmlFor={numberFieldId}>
-              Number
-            </label>
-            <Field
-              className={css.input}
-              type="number"
-              name="number"
-              id={numberFieldId}
-              placeholder="Number..."
-            />
-            <ErrorMessage className={css.error} name="number" component="p" />
-          </div>
-        </div>
+          <button className={css.btn} type="submit">
+            Add contact
+          </button>
+        </Form>
+      </Formik>
 
-        <button className={css.btn} type="submit">
-          Add contact
+      <div className={css.down}>
+        <button onClick={handleClick} className={css.vector}>
+          <span>
+            <FaArrowDownLong />
+          </span>
         </button>
-      </Form>
-    </Formik>
+      </div>
+    </div>
   );
 };
 

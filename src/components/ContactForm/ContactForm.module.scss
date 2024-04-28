@@ -1,16 +1,35 @@
-.form {
-	align-self: flex-start;
+.wrapp {
+	display: flex;
+	flex-direction: column;
+}
+.info {
+	padding: 100px 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: rgba(34, 34, 34, 0.616);
-	padding: 30px;
-	border-radius: 10px;
+	gap: 20px;
+	h2 {
+		text-transform: uppercase;
+		text-align: center;
+		font-size: 76px;
+		width: 780px;
+		letter-spacing: 4px;
+	}
+	p {
+		font-size: 32px;
+		letter-spacing: 6px;
+	}
+}
+.form {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+	justify-content: center;
 }
 .form-boby {
 	display: flex;
-	flex-direction: column;
+	align-items: center;
 	gap: 30px;
 	div {
 		position: relative;
@@ -57,5 +76,56 @@
 	&:hover {
 		background-color: var(--color-hover);
 		color: #fff;
+	}
+}
+.down {
+	margin-top: 130px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.vector {
+	height: 80px;
+	width: 50px;
+	span {
+		display: block;
+		font-size: 40px;
+		animation: jump 5s infinite;
+		transition: 150ms all;
+	}
+	&:hover span {
+		color: var(--color-hover);
+	}
+}
+@keyframes jump {
+	0% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(-15px);
+	}
+	54% {
+		transform: translateY(9px);
+	}
+	58% {
+		transform: translateY(-7px);
+	}
+	62% {
+		transform: translateY(5px);
+	}
+	66% {
+		transform: translateY(-3px);
+	}
+	70% {
+		transform: translateY(2px);
+	}
+	74% {
+		transform: translateY(-1px);
+	}
+	80% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(0);
 	}
 }

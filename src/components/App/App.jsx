@@ -14,7 +14,7 @@ import Main from '../Layout/Main/Main';
 import Footer from '../Footer/Footer';
 import Section from '../Layout/Section/Section';
 import ContactForm from '../ContactForm/ContactForm';
-import Search from '../Layout/Search/Search';
+import Hero from '../Layout/Hero/Hero';
 import ContactList from '../ContactList/ContactList';
 import SearchBox from '../SearchBox/SearchBox';
 import { Loader } from '../Loader/Loader';
@@ -33,14 +33,14 @@ function App() {
 
   return (
     <Wrapper>
-      <Header />
+      <Hero>
+        <Header />
+        <ContactForm />
+      </Hero>
       <Main>
         <Section>
-          <ContactForm />
-          <Search>
-            <SearchBox />
-            <ContactList />
-          </Search>
+          <SearchBox />
+          <ContactList />
           {isLoading && !error && <Loader />}
           {!isLoading && error && <Error />}
         </Section>
