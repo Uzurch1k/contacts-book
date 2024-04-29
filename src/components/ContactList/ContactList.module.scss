@@ -1,5 +1,6 @@
 .wrapp {
-	max-height: 300px;
+	max-height: 500px;
+	width: 850px;
 	overflow-y: scroll;
 	background-color: transparent;
 	padding: 30px 50px;
@@ -40,7 +41,4 @@
 /* --------- Adaptive desktop (1920px) --------- */
 
 @media screen and (min-width: 1920px) {
-	.list {
-		grid-template-columns: repeat(3, 1fr);
-	}
 }
