@@ -2,7 +2,7 @@ import { FaArrowDownLong } from 'react-icons/fa6';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { addContact } from '../../redux/contactsOps';
+import { addContact } from '../../redux/contacts/operations';
 
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';

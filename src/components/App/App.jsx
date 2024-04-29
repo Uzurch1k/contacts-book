@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import {
   selectContactsLoading,
   selectContactsError,
-} from '../../redux/contactsSlice';
-import { fetchContacts } from '../../redux/contactsOps';
+} from '../../redux/contacts/selectors';
+import { fetchContacts } from '../../redux/contacts/operations';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Wrapper from '../Layout/Wrapper/Wrapper';
