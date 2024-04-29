@@ -21,7 +21,7 @@ const contactsRejected = state => {
   state.error = true;
 };
 
-export const contactsSlice = createSlice({
+const contactsSlice = createSlice({
   name: 'contacts',
   initialState: contactsInitialState,
   extraReducers: builder => {

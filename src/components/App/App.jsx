@@ -20,6 +20,15 @@ import SearchBox from '../SearchBox/SearchBox';
 import { Loader } from '../Loader/Loader';
 import { Error } from '../Error/Error';
 
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const ContactsPage = lazy(() =>
+  import('../../pages/ContactsPage/ContactsPage')
+);
+const LoginPage = lazy(() => import('../../pages/LoginPage/LoginPage'));
+const RegistrationPage = lazy(() =>
+  import('../../pages/RegistrationPage/RegistrationPage')
+);
+
 import './App.scss';
 
 function App() {
