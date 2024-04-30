@@ -2,26 +2,6 @@
 	display: flex;
 	flex-direction: column;
 }
-.info {
-	padding: 150px 0 100px 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 30px;
-	h2 {
-		text-transform: uppercase;
-		text-align: center;
-		font-size: 76px;
-		width: 780px;
-		letter-spacing: 4px;
-		line-height: 1.2;
-	}
-	p {
-		font-size: 32px;
-		letter-spacing: 6px;
-	}
-}
 
 .form {
 	display: flex;
@@ -34,7 +14,7 @@
 	transform: translateY(190px);
 }
 
-.form-boby {
+.formbody {
 	display: flex;
 	align-items: center;
 	gap: 30px;

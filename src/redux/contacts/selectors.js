@@ -9,8 +9,8 @@ const selectNameFilter = state => state.filters.name;
 export const selectFilteredContacts = createSelector(
   [selectContacts, selectNameFilter],
   (contacts, filters) => {
-    return contacts.filter(item =>
-      item.name.toLowerCase().includes(filters.toLowerCase())
-    );
+    return contacts
+      .filter(item => item.name.toLowerCase().includes(filters.toLowerCase()))
+      .toSorted((a, b) => a.name.localeCompare(b.name));
   }
 );

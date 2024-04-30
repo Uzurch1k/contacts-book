@@ -73,18 +73,13 @@ const ContactForm = () => {
 
   return (
     <div className={css.wrapp}>
-      <div className={css.info}>
-        <h2>Welcome to the contact book</h2>
-        <p>Enrich your contact list</p>
-      </div>
-
       <Formik
         initialValues={initialValues}
         validationSchema={FeedbackSchema}
         onSubmit={handleSubmit}
       >
         <Form className={formClasses}>
-          <div className={css['form-boby']}>
+          <div className={css.formbody}>
             <div>
               <label className={css.label} htmlFor={nameFieldId}>
                 Name

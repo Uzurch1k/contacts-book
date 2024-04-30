@@ -1,0 +1,14 @@
+.nav {
+	display: flex;
+}
+.link {
+	padding: 4px 10px;
+	background-color: #43484e;
+	transition: 150ms background-color;
+	&:hover {
+		background-color: #5f828d;
+	}
+}
+.active {
+	background-color: #5f828d;
+}

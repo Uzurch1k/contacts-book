@@ -1,24 +1,13 @@
-import { useEffect, Suspense, lazy } from 'react';
+import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
-import {
-  selectContactsLoading,
-  selectContactsError,
-} from '../../redux/contacts/selectors';
-import { fetchContacts } from '../../redux/contacts/operations';
 import { useDispatch, useSelector } from 'react-redux';
 
+// import { selectIsRefreshing } from '../../redux/contacts/selectors';
+// import { refreshUser } from '../../redux/auth/operations';
+
 import Wrapper from '../Layout/Wrapper/Wrapper';
-import Header from '../Header/Header';
-import Main from '../Layout/Main/Main';
-import Footer from '../Footer/Footer';
-import Section from '../Layout/Section/Section';
-import ContactForm from '../ContactForm/ContactForm';
-import Hero from '../Layout/Hero/Hero';
-import ContactList from '../ContactList/ContactList';
-import SearchBox from '../SearchBox/SearchBox';
-import { Loader } from '../Loader/Loader';
-import { Error } from '../Error/Error';
+import PrivateRoute from '../Routes/PrivateRoute';
+import RestrictedRoute from '../Routes/RestrictedRoute';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const ContactsPage = lazy(() =>
@@ -32,29 +21,39 @@ const RegistrationPage = lazy(() =>
 import './App.scss';
 
 function App() {
-  const dispatch = useDispatch();
-  const isLoading = useSelector(selectContactsLoading);
-  const error = useSelector(selectContactsError);
+  // const dispatch = useDispatch();
+  // const { isRefreshing } = useSelector(selectIsRefreshing);
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(refreshUser());
+  // }, [dispatch]);
 
   return (
     <Wrapper>
-      <Hero>
-        <Header />
-        <ContactForm />
-      </Hero>
-      <Main>
-        <Section>
-          <SearchBox />
-          <ContactList />
-          {isLoading && !error && <Loader />}
-          {!isLoading && error && <Error />}
-        </Section>
-      </Main>
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegistrationPage />}
+            />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
+          }
+        />
+      </Routes>
     </Wrapper>
   );
 }

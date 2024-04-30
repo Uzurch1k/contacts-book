@@ -4,7 +4,7 @@ import css from './Error.module.scss';
 
 export const Error = () => {
   return (
-    <div className={css.wrapp}>
+    <div className={css.error}>
       <TbError404 />
     </div>
   );

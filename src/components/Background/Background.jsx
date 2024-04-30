@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-
 import css from './Background.module.scss';
 
 const Background = () => {

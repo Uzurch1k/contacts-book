@@ -14,7 +14,7 @@ const SearchBox = () => {
   const handleSearch = event => dispatch(changeFilter(event));
 
   return (
-    <div className={css['search-container']}>
+    <div className={css.search}>
       <label className={css.label} htmlFor="searchId">
         Find contacts by name
       </label>

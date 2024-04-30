@@ -16,11 +16,11 @@
 	width: 100%;
 	background-color: #171717;
 }
-.name {
+.name,
+.tel {
 	display: flex;
 	gap: 10px;
 	align-items: center;
-	width: 200px;
 	span {
 		display: -webkit-box;
 		-webkit-line-clamp: 1;
@@ -29,19 +29,10 @@
 		text-overflow: ellipsis;
 	}
 }
+.name {
+}
 .tel {
-	display: flex;
-	gap: 10px;
-	align-items: center;
-	width: 200px;
 	transition: 150ms color;
-	span {
-		display: -webkit-box;
-		-webkit-line-clamp: 1;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		text-overflow: ellipsis;
-	}
 	&:hover {
 		color: #5f828d;
 	}

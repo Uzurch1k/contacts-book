@@ -1,9 +1,10 @@
 import { MutatingDots } from 'react-loader-spinner';
+
 import css from './Loader.module.scss';
 
 export const Loader = () => {
   return (
-    <div className={css.wrapp}>
+    <div className={css.main}>
       <MutatingDots
         visible={true}
         height="100"
@@ -21,7 +22,7 @@ export const Loader = () => {
 
 export const LoaderDetails = () => {
   return (
-    <div className={css.wrapp__details}>
+    <div className={css.details}>
       <MutatingDots
         visible={true}
         height="100"
