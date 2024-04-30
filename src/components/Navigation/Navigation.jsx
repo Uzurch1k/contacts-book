@@ -2,6 +2,9 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 // import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
+import { FaRegAddressBook } from 'react-icons/fa';
+import { IoIosHome } from 'react-icons/io';
+
 import clsx from 'clsx';
 import css from './Navigation.module.scss';
 
@@ -15,11 +18,13 @@ const Navigation = () => {
   return (
     <nav className={css.nav}>
       <NavLink className={buildLinkClass} to="/">
-        Home
+        <IoIosHome />
+        <span>Home</span>
       </NavLink>
       {true && (
         <NavLink className={buildLinkClass} to="/contacts">
-          Contacts
+          <FaRegAddressBook />
+          <span>Contacts</span>
         </NavLink>
       )}
     </nav>

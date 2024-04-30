@@ -7,8 +7,8 @@
 	align-items: center;
 	background-color: #222222;
 	border-radius: 50px;
-	border: 1px solid #677070;
 	overflow: hidden;
+	box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 .navigation {
 	flex-grow: 1;
@@ -18,7 +18,6 @@
 	height: 100%;
 }
 .logo {
-	border-right: 1px solid #677070;
 	display: flex;
 	gap: 10px;
 	justify-content: center;
@@ -42,17 +41,6 @@
 	text-overflow: ellipsis;
 }
 
-// .nav {
-// 	display: flex;
-// 	position: absolute;
-// 	left: 50%;
-// 	transform: translateX(-50%);
-// 	&__link {
-// 		padding: 4px 10px;
-// 		background-color: #43484e;
-// 	}
-// }
-
 /* --------- Adaptive tablet (768px) --------- */
 
 @media screen and (min-width: 768px) {
@@ -61,12 +49,6 @@
 		display: block;
 		font-size: 20px;
 	}
-
-	// .nav {
-	// 	&__link {
-	// 		padding: 7px 20px;
-	// 	}
-	// }
 }
 
 /* --------- Adaptive desktop (1152px) --------- */

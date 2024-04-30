@@ -13,9 +13,9 @@ const Wrapper = ({ children }) => {
     <>
       <div className={css.wrapper}>
         <AppBar />
-        <Suspense fallback={<Loader />}>
-          <Main>{children}</Main>
-        </Suspense>
+        <Main>
+          <Suspense fallback={<Loader />}>{children}</Suspense>
+        </Main>
         <Footer />
       </div>
       <Background />

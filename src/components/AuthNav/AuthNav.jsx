@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+import { FiLogIn } from 'react-icons/fi';
+
 import clsx from 'clsx';
 import css from './AuthNav.module.scss';
 
@@ -14,7 +16,8 @@ const AuthNav = () => {
         Register
       </NavLink>
       <NavLink className={buildLinkClass} to="/login">
-        Log In
+        <span>Log In</span>
+        <FiLogIn />
       </NavLink>
     </div>
   );
