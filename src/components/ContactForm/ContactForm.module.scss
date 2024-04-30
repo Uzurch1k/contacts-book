@@ -2,7 +2,6 @@
 	display: flex;
 	flex-direction: column;
 }
-
 .form {
 	display: flex;
 	align-items: flex-end;
@@ -10,10 +9,6 @@
 	justify-content: center;
 	transition: transform 0.2s ease;
 }
-.scrolled {
-	transform: translateY(190px);
-}
-
 .formbody {
 	display: flex;
 	align-items: center;
@@ -62,62 +57,5 @@
 	&:hover {
 		background-color: var(--color-hover);
 		color: #fff;
-	}
-}
-.down {
-	margin-top: 130px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: all 0.2s ease;
-}
-.visually {
-	opacity: 0;
-	visibility: hidden;
-	transform: translateY(-90px);
-}
-.vector {
-	height: 80px;
-	width: 50px;
-	span {
-		display: block;
-		font-size: 40px;
-		animation: jump 5s infinite;
-		transition: 150ms all;
-	}
-	&:hover span {
-		color: var(--color-hover);
-	}
-}
-@keyframes jump {
-	0% {
-		transform: translateY(0);
-	}
-	50% {
-		transform: translateY(-15px);
-	}
-	54% {
-		transform: translateY(9px);
-	}
-	58% {
-		transform: translateY(-7px);
-	}
-	62% {
-		transform: translateY(5px);
-	}
-	66% {
-		transform: translateY(-3px);
-	}
-	70% {
-		transform: translateY(2px);
-	}
-	74% {
-		transform: translateY(-1px);
-	}
-	80% {
-		transform: translateY(0);
-	}
-	100% {
-		transform: translateY(0);
 	}
 }

@@ -1,5 +1,4 @@
-import { FaArrowDownLong } from 'react-icons/fa6';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addContact } from '../../redux/contacts/operations';
@@ -7,7 +6,6 @@ import { addContact } from '../../redux/contacts/operations';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
-import clsx from 'clsx';
 
 import css from './ContactForm.module.scss';
 
@@ -30,18 +28,9 @@ const initialValues = {
 const ContactForm = () => {
   const nameFieldId = nanoid();
   const numberFieldId = nanoid();
-  const [scrolled, setScrolled] = useState(false);
   const dispatch = useDispatch();
 
-  const scrollUp = () => {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    });
-  };
-
   const handleSubmit = (values, actions) => {
-    scrollUp();
     const { name, number } = values;
     dispatch(
       addContact({
@@ -52,25 +41,6 @@ const ContactForm = () => {
     actions.resetForm();
   };
 
-  const handleClick = () => {
-    scrollUp();
-  };
-
-  const handleScroll = () => {
-    const currentPosition = window.scrollY;
-    setScrolled(currentPosition > 600);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
-  const formClasses = clsx(css.form, { [css.scrolled]: scrolled });
-  const downClasses = clsx(css.down, { [css.visually]: scrolled });
-
   return (
     <div className={css.wrapp}>
       <Formik
@@ -78,7 +48,7 @@ const ContactForm = () => {
         validationSchema={FeedbackSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={formClasses}>
+        <Form className={css.form}>
           <div className={css.formbody}>
             <div>
               <label className={css.label} htmlFor={nameFieldId}>
@@ -113,14 +83,6 @@ const ContactForm = () => {
           </button>
         </Form>
       </Formik>
-
-      <div className={downClasses}>
-        <button onClick={handleClick} className={css.vector}>
-          <span>
-            <FaArrowDownLong />
-          </span>
-        </button>
-      </div>
     </div>
   );
 };

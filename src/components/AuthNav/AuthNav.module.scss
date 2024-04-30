@@ -1,14 +1,19 @@
 .aut {
 	display: flex;
+	height: 100%;
 }
 .link {
-	padding: 4px 10px;
-	background-color: #43484e;
+	padding: 0 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-left: 1px solid #677070;
+	background-color: #36383b;
 	transition: 150ms background-color;
 	&:hover {
-		background-color: #5f828d;
+		background-color: #3b5252;
 	}
 }
 .active {
-	background-color: #5f828d;
+	background-color: #3b5252;
 }

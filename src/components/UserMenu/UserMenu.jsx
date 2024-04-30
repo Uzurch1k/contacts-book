@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { logOut } from '../../redux/auth/operations';
 // import { selectUser } from '../../redux/auth/selectors';
+import { IoExitOutline } from 'react-icons/io5';
 
 import css from './UserMenu.module.scss';
 
@@ -14,9 +15,9 @@ const UserMenu = () => {
       <button type="button" className={css.btn} onClick={() => dispatch(logOut())}>
         Logout
       </button> */}
-      <p className={css.name}>Welcome, User</p>
+      <p className={css.name}>Welcome, halchenkovlad@gmail.com</p>
       <button type="button" className={css.btn}>
-        Logout
+        <IoExitOutline />
       </button>
     </div>
   );
