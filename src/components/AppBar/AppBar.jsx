@@ -24,8 +24,8 @@ const AppBar = () => {
           <div className={css.navigation}>
             <Navigation />
             {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
-            <UserMenu />
-            {/* <AuthNav /> */}
+            {/* <UserMenu /> */}
+            <AuthNav />
           </div>
         </div>
       </div>
