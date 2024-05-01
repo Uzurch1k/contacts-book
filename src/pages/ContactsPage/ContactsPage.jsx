@@ -13,6 +13,7 @@ import ContactList from '../../components/ContactList/ContactList';
 import Section from '../../components/Layout/Section/Section';
 import { Loader } from '../../components/Loader/Loader';
 import { Error } from '../../components/Error/Error';
+import DocumentTitle from '../../components/Layout/DocumentTitle/DocumentTitle';
 
 import css from './ContactsPage.module.scss';
 
@@ -27,6 +28,7 @@ const ContactsPage = () => {
 
   return (
     <Section>
+      <DocumentTitle>Contacts</DocumentTitle>
       <div className={css.contacts}>
         <ContactForm />
         <div className={css.search}>

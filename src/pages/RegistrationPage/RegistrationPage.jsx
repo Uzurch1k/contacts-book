@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
 
 import Section from '../../components/Layout/Section/Section';
+import DocumentTitle from '../../components/Layout/DocumentTitle/DocumentTitle';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -71,7 +72,8 @@ const RegistrationPage = () => {
 
   return (
     <Section>
-      <div className={css.registr}>
+      <DocumentTitle>Register</DocumentTitle>
+      <div className={css.register}>
         <Formik
           initialValues={initialValues}
           validationSchema={FeedbackSchema}

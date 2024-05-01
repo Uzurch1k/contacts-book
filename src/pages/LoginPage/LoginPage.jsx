@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/auth/operations';
 
 import Section from '../../components/Layout/Section/Section';
+import DocumentTitle from '../../components/Layout/DocumentTitle/DocumentTitle';
 
 import toast, { Toaster } from 'react-hot-toast';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -64,6 +65,7 @@ const LoginPage = () => {
 
   return (
     <Section>
+      <DocumentTitle>Log In</DocumentTitle>
       <div className={css.login}>
         <Formik
           initialValues={initialValues}
