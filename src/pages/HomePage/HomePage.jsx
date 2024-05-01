@@ -21,7 +21,9 @@ const HomePage = () => {
             </span>
           </div>
           <Link className={css.link} to="/contacts">
-            <LuPlus />
+            <span>
+              <LuPlus />
+            </span>
           </Link>
         </div>
       </div>

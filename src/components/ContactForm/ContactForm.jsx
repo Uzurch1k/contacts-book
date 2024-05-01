@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 
 import { addContact } from '../../redux/contacts/operations';
 
+import toast, { Toaster } from 'react-hot-toast';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
 import * as Yup from 'yup';
 
+import clsx from 'clsx';
 import css from './ContactForm.module.scss';
 
 const FeedbackSchema = Yup.object().shape({
@@ -30,16 +32,30 @@ const ContactForm = () => {
   const numberFieldId = nanoid();
   const dispatch = useDispatch();
 
-  const handleSubmit = (values, actions) => {
+  const notify = promise =>
+    toast.promise(promise, {
+      loading: 'Saving...',
+      success: <b>Contact added!</b>,
+      error: <b>Could not save!</b>,
+    });
+
+  const handleSubmit = async (values, actions) => {
     const { name, number } = values;
-    dispatch(
+    const myPromise = dispatch(
       addContact({
         name,
         number,
       })
     );
+
     actions.resetForm();
+    notify(myPromise);
   };
+
+  const handleInputClass = (touched, error) =>
+    clsx(css.input, {
+      [css.errorInput]: touched && error,
+    });
 
   return (
     <div className={css.wrapp}>
@@ -48,41 +64,48 @@ const ContactForm = () => {
         validationSchema={FeedbackSchema}
         onSubmit={handleSubmit}
       >
-        <Form className={css.form}>
-          <div className={css.formbody}>
-            <div>
-              <label className={css.label} htmlFor={nameFieldId}>
-                Name
-              </label>
-              <Field
-                className={css.input}
-                name="name"
-                id={nameFieldId}
-                placeholder="Name..."
-              />
-              <ErrorMessage className={css.error} name="name" component="p" />
+        {({ errors, touched }) => (
+          <Form className={css.form}>
+            <div className={css.formbody}>
+              <div>
+                <label className={css.label} htmlFor={nameFieldId}>
+                  Name
+                </label>
+                <Field
+                  className={handleInputClass(touched.name, errors.name)}
+                  name="name"
+                  id={nameFieldId}
+                  placeholder="Name..."
+                />
+                <ErrorMessage className={css.error} name="name" component="p" />
+              </div>
+
+              <div>
+                <label className={css.label} htmlFor={numberFieldId}>
+                  Number
+                </label>
+                <Field
+                  className={handleInputClass(touched.number, errors.number)}
+                  type="number"
+                  name="number"
+                  id={numberFieldId}
+                  placeholder="Number..."
+                />
+                <ErrorMessage
+                  className={css.error}
+                  name="number"
+                  component="p"
+                />
+              </div>
             </div>
 
-            <div>
-              <label className={css.label} htmlFor={numberFieldId}>
-                Number
-              </label>
-              <Field
-                className={css.input}
-                type="number"
-                name="number"
-                id={numberFieldId}
-                placeholder="Number..."
-              />
-              <ErrorMessage className={css.error} name="number" component="p" />
-            </div>
-          </div>
-
-          <button className={css.btn} type="submit">
-            Add contact
-          </button>
-        </Form>
+            <button className={css.btn} type="submit">
+              Add contact
+            </button>
+          </Form>
+        )}
       </Formik>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

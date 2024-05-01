@@ -1,9 +1,10 @@
 .wrapp {
-	max-height: 500px;
-	width: 850px;
+	margin-top: 30px;
+	max-height: 460px;
+	width: 600px;
 	overflow-y: scroll;
 	background-color: transparent;
-	padding: 30px 50px;
+	padding: 0 20px;
 }
 .wrapp::-webkit-scrollbar {
 	-webkit-appearance: none;
@@ -11,7 +12,7 @@
 }
 .wrapp::-webkit-scrollbar-thumb {
 	border-radius: 5px;
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: #3b5252;
 }
 
 .list {
@@ -34,7 +35,7 @@
 
 @media screen and (min-width: 1440px) {
 	.list {
-		grid-template-columns: repeat(2, 1fr);
+		// grid-template-columns: repeat(2, 1fr);
 	}
 }
 

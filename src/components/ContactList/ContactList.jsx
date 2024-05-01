@@ -13,19 +13,17 @@ const ContactList = () => {
   const nameFilter = useSelector(selectNameFilter);
 
   return (
-    <>
+    <div className={css.wrapp}>
       {contactsFilter.length === 0 && nameFilter !== '' ? (
         <NotFound />
       ) : (
-        <div className={css.wrapp}>
-          <ul className={css.list}>
-            {contactsFilter.map(item => (
-              <Contact key={item.id} searchContact={item} />
-            ))}
-          </ul>
-        </div>
+        <ul className={css.list}>
+          {contactsFilter.map(item => (
+            <Contact key={item.id} searchContact={item} />
+          ))}
+        </ul>
       )}
-    </>
+    </div>
   );
 };
 

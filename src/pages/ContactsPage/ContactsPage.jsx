@@ -29,8 +29,10 @@ const ContactsPage = () => {
     <Section>
       <div className={css.contacts}>
         <ContactForm />
-        <SearchBox />
-        <ContactList />
+        <div className={css.search}>
+          <SearchBox />
+          <ContactList />
+        </div>
         {isLoading && !error && <Loader />}
         {!isLoading && error && <Error />}
       </div>
