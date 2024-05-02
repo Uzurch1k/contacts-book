@@ -1,9 +1,9 @@
-import { lazy } from 'react';
+import { lazy, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import { selectIsRefreshing } from '../../redux/contacts/selectors';
-// import { refreshUser } from '../../redux/auth/operations';
+import { selectIsRefreshing } from '../../redux/auth/selectors';
+import { refreshUser } from '../../redux/auth/operations';
 
 import Wrapper from '../Layout/Wrapper/Wrapper';
 import PrivateRoute from '../Routes/PrivateRoute';
@@ -21,14 +21,16 @@ const RegistrationPage = lazy(() =>
 import './App.scss';
 
 function App() {
-  // const dispatch = useDispatch();
-  // const { isRefreshing } = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
+  const isRefreshing = useSelector(selectIsRefreshing);
 
-  // useEffect(() => {
-  //   dispatch(refreshUser());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <b>Refreshing user...</b>
+  ) : (
     <Wrapper>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -57,5 +59,4 @@ function App() {
     </Wrapper>
   );
 }
-
 export default App;

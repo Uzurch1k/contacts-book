@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-// import { selectIsLoggedIn } from '../../redux/auth/selectors';
+
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 import { FaRegAddressBook } from 'react-icons/fa';
 import { IoIosHome } from 'react-icons/io';
@@ -13,7 +14,7 @@ const buildLinkClass = ({ isActive }) => {
 };
 
 const Navigation = () => {
-  // const { isLoggedIn } = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <nav className={css.nav}>
@@ -21,7 +22,7 @@ const Navigation = () => {
         <IoIosHome />
         <span>Home</span>
       </NavLink>
-      {true && (
+      {isLoggedIn && (
         <NavLink className={buildLinkClass} to="/contacts">
           <FaRegAddressBook />
           <span>Contacts</span>

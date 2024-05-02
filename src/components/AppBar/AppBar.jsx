@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-// import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 import Navigation from '../Navigation/Navigation';
 import UserMenu from '../UserMenu/UserMenu';
@@ -11,7 +11,7 @@ import { FaRegAddressBook } from 'react-icons/fa';
 import css from './AppBar.module.scss';
 
 const AppBar = () => {
-  // const { isLoggedIn } = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   return (
     <header className={css.header}>
@@ -23,9 +23,7 @@ const AppBar = () => {
           </Link>
           <div className={css.navigation}>
             <Navigation />
-            {/* {isLoggedIn ? <UserMenu /> : <AuthNav />} */}
-            {/* <UserMenu /> */}
-            <AuthNav />
+            {isLoggedIn ? <UserMenu /> : <AuthNav />}
           </div>
         </div>
       </div>

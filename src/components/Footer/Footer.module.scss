@@ -1,5 +1,5 @@
 .footer {
-	padding: 20px 0;
+	padding: 10px 0;
 	background-color: #222222;
 	box-shadow: 0px -5px 10px 0px rgba(0, 0, 0, 0.5);
 }
@@ -12,8 +12,8 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	border-radius: 50%;
 	overflow: hidden;
 	img {
@@ -25,12 +25,12 @@
 	}
 }
 .text {
-	font-size: 16px;
+	font-size: 14px;
 	opacity: 0.5;
 	letter-spacing: 2px;
 }
 .source {
-	font-size: 18px;
+	font-size: 16px;
 	transition: 150ms color;
 	opacity: 0.5;
 	&:hover {
@@ -40,15 +40,18 @@
 /* --------- Adaptive tablet (768px) --------- */
 
 @media screen and (min-width: 768px) {
-	.github {
-		width: 50px;
-		height: 50px;
-	}
 }
 
 /* --------- Adaptive desktop (1152px) --------- */
 
 @media screen and (min-width: 1152px) {
+	.github {
+		width: 40px;
+		height: 40px;
+	}
+	.footer {
+		padding: 15px 0;
+	}
 }
 
 /* --------- Adaptive desktop (1440px) --------- */

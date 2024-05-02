@@ -1,5 +1,5 @@
 .header {
-	padding-top: 30px;
+	padding-top: 20px;
 }
 .body {
 	height: 70px;
@@ -22,9 +22,9 @@
 	gap: 10px;
 	justify-content: center;
 	align-items: center;
-	padding: 0 30px;
+	padding: 0 20px;
 	height: 100%;
-	font-size: 32px;
+	font-size: 28px;
 	transition: 150ms all;
 	&:hover {
 		color: var(--color-hover);
