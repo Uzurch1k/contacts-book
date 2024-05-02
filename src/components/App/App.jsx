@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectIsRefreshing } from '../../redux/auth/selectors';
 import { refreshUser } from '../../redux/auth/operations';
 
+import { Loader } from '../Loader/Loader';
 import Wrapper from '../Layout/Wrapper/Wrapper';
 import PrivateRoute from '../Routes/PrivateRoute';
 import RestrictedRoute from '../Routes/RestrictedRoute';
@@ -29,7 +30,7 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
     <Wrapper>
       <Routes>
