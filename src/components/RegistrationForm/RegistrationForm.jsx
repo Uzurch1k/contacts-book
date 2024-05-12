@@ -40,8 +40,8 @@ const RegistrationForm = () => {
   const notify = promise =>
     toast.promise(promise, {
       loading: 'Saving...',
-      success: <b>Contact added!</b>,
-      error: <b>Could not save!</b>,
+      success: <b>Registration completed!</b>,
+      error: <b>Registration was unsuccessful!</b>,
     });
 
   const handleSubmit = async (values, actions) => {

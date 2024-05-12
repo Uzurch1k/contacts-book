@@ -2,7 +2,6 @@ import { useDispatch } from 'react-redux';
 
 import { logIn } from '../../redux/auth/operations';
 
-
 import toast, { Toaster } from 'react-hot-toast';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { nanoid } from 'nanoid';
@@ -36,8 +35,8 @@ const LoginForm = () => {
   const notify = promise =>
     toast.promise(promise, {
       loading: 'Saving...',
-      success: <b>Contact added!</b>,
-      error: <b>Could not save!</b>,
+      success: <b>Login successful!</b>,
+      error: <b>Login failed!</b>,
     });
 
   const handleSubmit = async (values, actions) => {
