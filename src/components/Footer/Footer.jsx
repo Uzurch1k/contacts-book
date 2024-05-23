@@ -17,7 +17,7 @@ const Footer = () => {
           <p className={css.text}>2024 All rights reserved</p>
           <a
             className={css.source}
-            href="https://github.com/Uzurch1k/goit-react-hw-08"
+            href="https://github.com/Uzurch1k/contacts-book"
             target="_blank"
             rel="noopener noreferrer"
           >
